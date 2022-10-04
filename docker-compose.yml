@@ -1,0 +1,15 @@
+version: "3"
+services:
+  node:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/app:cached
+    environment:
+      - HOST=0.0.0.0
+      - CHOKIDAR_USEPOLLING=true
+    tty: true
+    ports:
+      - "3000:3000"
+    command: yarn dev
